@@ -1,9 +1,7 @@
 (ns code-katas-1.core)
 
 (defn filter-odd
-  "Escribir una funcion que retorne solamente los numeros impares de
-   una secuencia"
-  [s]
+   ; Escribir una funcion que retorne solamente los numero impres de una secuencia
   )
 
 (defn nil-key
