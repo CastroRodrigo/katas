@@ -3,7 +3,7 @@
 (defn filter-odd
    ; Escribir una funcion que retorne solamente los numero impres de una secuencia
   [numeros]
-  (filter odd? numeros )
+  (for [x numeros] (if(odd? x) x ) )
 )
 
 (defn nil-key
