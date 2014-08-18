@@ -1,10 +1,9 @@
 (ns code-katas-1.core)
 
-(defn filter-odd
-   ; Escribir una funcion que retorne solamente los numero impres de una secuencia
-  [numeros]
-  (for [x numeros] (if(odd? x) x ) )
-)
+(defn filter-odd [numeros]
+  ; Escribir una funcion que retorne solamente los numero impares de una secuencia
+  (filter odd? numeros) 
+  )
 
 (defn nil-key
   "Escribir una funcion que dada una clave y un mapa, devuelva true, solamente si el mapa
