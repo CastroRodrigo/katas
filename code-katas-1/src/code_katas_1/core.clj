@@ -35,10 +35,10 @@
   (first(sort > args))
   )
 
-(defn split-two
-  "Escribir una funcion que parta una secuencia en dos partes
-   Restricciones: split-at"
-  [length s]
+(defn split-two [length secuencia]
+  ;;Escribir una funcion que parta una secuencia en dos partes
+  ;;Restricciones: split-at
+  (vec (cons (vec(take length secuencia)) (cons (vec(drop length secuencia)) ())))
   )
 
 (defn inter-two
