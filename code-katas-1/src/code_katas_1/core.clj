@@ -10,6 +10,12 @@
  (if (and (nil? (get mapa clave)) (contains? mapa clave)) true false)
  )
 
+(defn range [start end]
+   ;;Escribir una funcion que cree una lista de enteros en un rango dado.
+   ;;Restricciones: range
+  (when (distinct? start end) (do (println start) (cons  start (range_recur (+ start 1) end)))) 
+  )
+
 (defn range
   "Escribir una funcion que cree una lista de enteros en un rango dado.
    Restricciones: range"
