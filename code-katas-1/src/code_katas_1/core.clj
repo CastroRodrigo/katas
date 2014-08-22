@@ -41,10 +41,9 @@
   [s1 s2]
   )
 
-(defn retrieve-caps
-  "Escribir una funcion que reciba un string y devuelva un nuevo string conteniendo
-   solamente las mayusculas."
-  [text]
+(defn retrieve-caps [text]
+  ;;Funcion que reciba un string y devuelva un nuevo string conteniendo solamente las mayusculas."
+ (clojure.string/join "" (filter #(java.lang.Character/isUpperCase %) text))
   )
 
 (defn find-truth [& xs]
