@@ -13,7 +13,7 @@
 (defn range [start end]
    ;;Escribir una funcion que cree una lista de enteros en un rango dado.
    ;;Restricciones: range
-  (when (distinct? start end) (do (println start) (cons  start (range_recur (+ start 1) end)))) 
+  (when (distinct? start end) (do (println start) (cons  start (recur (+ start 1) end)))) 
   )
 
 (defn range
