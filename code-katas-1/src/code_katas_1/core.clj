@@ -47,11 +47,11 @@
   [text]
   )
 
-(defn find-truth
-  "Escribir una funcion que tome un numero variable de booleans, y devuelva true
-   solamente si alguno de los parametros son true, pero no todos son true. En otro
-   caso debera retornar false"
-  [& xs]
+(defn find-truth [& xs]
+  ;;Escribir una funcion que tome un numero variable de booleans, y devuelva true
+  ;;solamente si alguno de los parametros son true, pero no todos son true. En otro
+  ;;caso debera retornar false
+  (if (some true? xs) true false)
   )
 
 (defn zip-map
