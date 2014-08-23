@@ -1,12 +1,12 @@
 (ns code-katas-1.core)
 
 (defn filter-odd [numeros]
-  ; Escribir una funcion que retorne solamente los numero impares de una secuencia
+  ;;Funcion que retorne solamente los numero impares de una secuencia
   (filter odd? numeros) 
   )
 
 (defn nil-key [clave mapa]
- ;;Escribir una funcion que dada una clave y un mapa devuelce true, solamente si el mapa contiene una entrada con esa clave, y su valor es nil
+ ;;Funcion que dada una clave y un mapa devuelce true, solamente si el mapa contiene una entrada con esa clave, y su valor es nil
  (if (and (nil? (get mapa clave)) (contains? mapa clave)) true false)
  )
 
@@ -17,12 +17,6 @@
   )
  
 
-(defn range
-  "Escribir una funcion que cree una lista de enteros en un rango dado.
-   Restricciones: range"
-  [start end]
-  )
-
 (defn compress-sequence
   ;;Funcion que elimine los duplicados consecutivos de una secuencia"
   [secuencia]
@@ -32,7 +26,7 @@
   )
 
 (defn max-value [& args]
-  ;;Escribir una funcion que reciba un numero variable de parametros y retorne el que tenga el valor mayor
+  ;;Funcion que reciba un numero variable de parametros y retorne el que tenga el valor mayor
   ;;Restricciones: max y max-key"
   (first(sort > args))
   )
@@ -44,7 +38,7 @@
   )
 
 (defn inter-two
-  "Escribir una funcion que reciba dos secuencias y retorne el primero de cada una,
+  "Funcion que reciba dos secuencias y retorne el primero de cada una,
    luego el segundo de cada una, luego el tercero, etc.
    Restricciones: interleave"
   [s1 s2]
@@ -56,7 +50,7 @@
   )
 
 (defn find-truth [& xs]
-  ;;Escribir una funcion que tome un numero variable de booleans, y devuelva true
+  ;;Funcion que tome un numero variable de booleans, y devuelva true
   ;;solamente si alguno de los parametros son true, pero no todos son true. En otro
   ;;caso debera retornar false
   (if (some true? xs) true false)
