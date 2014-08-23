@@ -41,8 +41,7 @@
   ;;Funcion que reciba dos secuencias y retorne el primero de cada una,
   ;; luego el segundo de cada una, luego el tercero, etc.
   ;; Restricciones: interleave"
-  (when (or (not(empty? s1)) (not(empty? s2))) 
-    (do (cons (first s1) (cons (first s2) (inter-two (rest s1) (rest s2))))))
+  (mapcat vector s1 s2) 
  )
 
 (defn retrieve-caps [text]
