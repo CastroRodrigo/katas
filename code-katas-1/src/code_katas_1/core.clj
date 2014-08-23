@@ -24,9 +24,11 @@
   )
 
 (defn compress-sequence
-  "Escribir una funcion que elimine los duplicados consecutivos
-   de una secuencia"
-  [s]
+  ;;Funcion que elimine los duplicados consecutivos de una secuencia"
+  [secuencia]
+  (if (string? secuencia) 
+    (do (apply str (map first (partition-by identity secuencia)))) 
+    (do (map first (partition-by identity secuencia)) ) )
   )
 
 (defn max-value [& args]
