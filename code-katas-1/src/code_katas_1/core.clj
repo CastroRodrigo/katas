@@ -37,12 +37,13 @@
   (vec (cons (vec(take length secuencia)) (cons (vec(drop length secuencia)) ())))
   )
 
-(defn inter-two
-  "Funcion que reciba dos secuencias y retorne el primero de cada una,
-   luego el segundo de cada una, luego el tercero, etc.
-   Restricciones: interleave"
-  [s1 s2]
-  )
+(defn inter-two [s1 s2]
+  ;;Funcion que reciba dos secuencias y retorne el primero de cada una,
+  ;; luego el segundo de cada una, luego el tercero, etc.
+  ;; Restricciones: interleave"
+  (when (or (not(empty? s1)) (not(empty? s2))) 
+    (do (cons (first s1) (cons (first s2) (inter-two (rest s1) (rest s2))))))
+ )
 
 (defn retrieve-caps [text]
   ;;Funcion que reciba un string y devuelva un nuevo string conteniendo solamente las mayusculas."
