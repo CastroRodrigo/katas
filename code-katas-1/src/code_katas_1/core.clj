@@ -56,9 +56,9 @@
   (if (some true? xs) true false)
   )
 
-(defn zip-map
-  "Escribir una funcion que reciba un vector de claves y un vector de valores, y
-   construya un mapa a partir de ellos.
-   Restricciones: zipmap"
-  [k v]
+(defn zip-map [k v]
+  ;;Funcion que reciba un vector de claves y un vector de valores, y
+  ;;construya un mapa a partir de ellos.
+  ;;Restricciones: zipmap"
+  (into {} (map vector k v))  
   )
