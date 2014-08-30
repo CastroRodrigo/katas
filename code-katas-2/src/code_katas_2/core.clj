@@ -5,6 +5,7 @@
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
   [f]
+	
   )
 
 
@@ -12,6 +13,8 @@
   "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
   [& seqs]
+   (first(clojure.set/intersection(map set (set seqs))))
+
   )
 
 
