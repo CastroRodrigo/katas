@@ -4,8 +4,11 @@
 (defn unpartial
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
-  [f]
-	
+  [funcion]
+    (fn unpart [funcion & argumentos]
+     (let [x (funcion (first argumentos))] (if (fn? x) (unpart x (rest argumentos)))x))
+  funcion
+ 
   )
 
 
@@ -23,7 +26,14 @@
    retorne una nueva coleccion donde el valor es insertado intercalado cada dos argumentos
    que cumplan el predicado"
   [predicado valor secuencia]
-  )
+    (if (empty? secuencia) () 
+      (if (=(count secuencia) 1) 
+        secuencia 
+        (if (predicado (first secuencia) (second secuencia)) 
+          (do (conj (conj (first secuencia) valor) (intercalar predicado valor (rest secuencia))))
+          (do (intercalar predicado valor (rest secuencia))))))
+      
+      )
 
 
 (defn tartamudeo
@@ -33,4 +43,9 @@
    La funcion debe aceptar una secuencia inicial de numeros, y devolver una secuencia infinita de compresiones, donde
    cada nuevo elemento es el elemento anterior comprimido."
   [secuencia]
+  (if (apply = secuencia)
+    (do (conj (conj [] (count secuencia)) (first secuencia))) 
+    
+    )
+
   )
