@@ -30,8 +30,8 @@
       (if (=(count secuencia) 1) 
         secuencia 
         (if (predicado (first secuencia) (second secuencia)) 
-          (do (conj (conj (first secuencia) valor) (intercalar predicado valor (rest secuencia))))
-          (do (intercalar predicado valor (rest secuencia))))))
+          (do (cons (first secuencia) (cons valor (intercalar predicado valor (rest secuencia)))))
+          (do (cons (first secuencia) (intercalar predicado valor (rest secuencia)))))))
       
       )
 
