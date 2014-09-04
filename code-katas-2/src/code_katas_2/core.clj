@@ -4,10 +4,10 @@
 (defn unpartial
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
-  [funcion]
-    (fn unpart [funcion & argumentos]
-     (let [x (funcion (first argumentos))] (if (fn? x) (unpart x (rest argumentos)))x))
-  funcion
+  [f]
+    (fn unpart [f & argumentos] 
+     (let [x (f (first argumentos))] (if (fn? x) (unpart x (rest argumentos)))x))
+  f
  
   )
 
@@ -26,14 +26,16 @@
    retorne una nueva coleccion donde el valor es insertado intercalado cada dos argumentos
    que cumplan el predicado"
   [predicado valor secuencia]
+  (lazy-seq
     (if (empty? secuencia) () 
-      (if (=(count secuencia) 1) 
+      (if (nil?(second secuencia))
         secuencia 
         (if (predicado (first secuencia) (second secuencia)) 
-          (do (cons (first secuencia) (cons valor (intercalar predicado valor (rest secuencia)))))
-          (do (cons (first secuencia) (intercalar predicado valor (rest secuencia)))))))
-      
-      )
+         (do (cons (first secuencia) (cons valor (intercalar predicado valor (rest secuencia)))))
+         (do (cons (first secuencia) (intercalar predicado valor (rest secuencia))))))
+    )
+  )
+)
 
 
 (defn tartamudeo
