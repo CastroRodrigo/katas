@@ -44,11 +44,14 @@
    cada nuevo elemento es el elemento anterior comprimido."
   [secuencia]
   (if (apply = secuencia)
-    (do (conj (conj [] (count secuencia)) (first secuencia)))
+    (do ((fn iguales [seq] (conj (conj [] (count seq)) (first seq))) secuencia))
      (if (apply distinct? secuencia)
-       ((fn distintos [seq]  (if (nil? (first seq))
-                               (do seq)
-                               (do (flatten(cons (conj [1] (first seq)) (distintos (rest seq)))))   ))secuencia)
-    )
+       (do((fn distintos [seq]  (if (nil? (first seq))
+                                  (do seq)
+                                  (do (vec (flatten(cons (conj [1] (first seq)) (distintos (rest seq)))) ))   ))secuencia))
+    
+       (do (vec(flatten(vec(map tartamudeo (vec(map vec(partition-by identity secuencia))))))))
+       )
    )
+  
 )
