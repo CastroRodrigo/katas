@@ -44,8 +44,11 @@
    cada nuevo elemento es el elemento anterior comprimido."
   [secuencia]
   (if (apply = secuencia)
-    (do (conj (conj [] (count secuencia)) (first secuencia))) 
-    
+    (do (conj (conj [] (count secuencia)) (first secuencia)))
+     (if (apply distinct? secuencia)
+       ((fn distintos [seq]  (if (nil? (first seq))
+                               (do seq)
+                               (do (flatten(cons (conj [1] (first seq)) (distintos (rest seq)))))   ))secuencia)
     )
-
-  )
+   )
+)
