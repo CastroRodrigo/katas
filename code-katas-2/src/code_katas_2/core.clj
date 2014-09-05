@@ -53,5 +53,6 @@
        (do (vec(flatten(vec(map tartamudeo (vec(map vec(partition-by identity secuencia))))))))
        )
    )
-  
+       ;; si llamo a la funcion (take 5 (iterate tartamudeo [secuencia])) funciona como los test. No pude implementarlo en el metodo porque me quede sin tiempo 
+
 )
