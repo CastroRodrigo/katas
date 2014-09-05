@@ -5,9 +5,7 @@
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
   [f]
-    (fn unpart [f & argumentos] 
-     (let [x (f (first argumentos))] (if (fn? x) (unpart x (rest argumentos)))x))
-  f
+    
  
   )
 
@@ -16,7 +14,7 @@
   "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
   [& seqs]
-   (first(reduce clojure.set/intersection (map set seqs)))
+   (first(reduce clojure.set/intersection (map set seqs))) ;; no funciona con secuencias infinitas
 
   )
 
@@ -30,9 +28,9 @@
     (if (empty? secuencia) () 
       (if (nil?(second secuencia))
         secuencia 
-        (if (predicado (first secuencia) (second secuencia)) 
-         (do (cons (first secuencia) (cons valor (intercalar predicado valor (rest secuencia)))))
-         (do (cons (first secuencia) (intercalar predicado valor (rest secuencia))))))
+        (if (predicado (first secuencia) (second secuencia)) ;;pregunto si el predicado es true entre el primero y el segundo de la secuencia
+         (do (cons (first secuencia) (cons valor (intercalar predicado valor (rest secuencia))))) ;; en caso de true concateno el primero con el valor parametro y la llamada recursiva del resto
+         (do (cons (first secuencia) (intercalar predicado valor (rest secuencia)))))) ;; en caso falso concateno el primero de la secuencia con la llamada recursiva del resto
     )
   )
 )
